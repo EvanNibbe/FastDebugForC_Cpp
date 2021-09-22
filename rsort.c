@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 //Performs radix sort on an arbitrary list
 //Evan Nibbe
 //Sept 22nd, 2021
