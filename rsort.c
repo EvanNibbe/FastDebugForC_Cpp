@@ -15,8 +15,9 @@ struct list_item {
 void rsort(void *list, size_t item_size, long getInt(void *thing), int n) {
 	char *l=list;
 	typedef struct list_item item; //prevents the namespace from getting weird.
-	item *array=malloc(n*sizeof(item)*2);
+	item *array=malloc(n*sizeof(item)*2 + n*item_size);
 	item *sec=array+n; //secondary array.
+	char *transfers=sec+n;
 	int count[MODULO]; //the count array which will be initialized to 0 each time
 	//set up initial array of items using getInt function
 	for (int i=0; i<n; i++) {
@@ -87,11 +88,13 @@ void rsort(void *list, size_t item_size, long getInt(void *thing), int n) {
 
 	//final step: place items from array back into l in the new order
 	for (int i=0; i<n; i++) {
-		memcpy(l+item_size*i, array[i].data, item_size);
+		memcpy(transfers+item_size*i, array[i].data, item_size);
 		//char *temp=array[i].data;
 		//for (int j=0; j<item_size; j++) {
 		//	l[item_size*i+j]=temp[j];
 		//}
 	}
+	memcpy(l, transfers, n*item_size);
+	free(array);
 	//Now all items are sorted according to the number generated with getInt.
 }
