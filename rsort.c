@@ -30,6 +30,7 @@ void rsort(void *list, size_t item_size, long getInt(void *thing), int n) {
 		for (int i=0; i<MODULO; i++) {
 			count[i]=0;
 		}
+		count[0]=-1;
 		long divide_by=MODULO<<4*power;
 		for (int i=0; i<n; i++) {
 			count[(array[i].c/divide_by)%MODULO]++;
@@ -57,6 +58,7 @@ void rsort(void *list, size_t item_size, long getInt(void *thing), int n) {
 		for (int i=0; i<MODULO; i++) {
 			count[i]=0;
 		}
+		count[0]=-1;
 		num_g_mod=0;
 		divide_by=MODULO<<4*power;
 		for (int i=0; i<n; i++) {
