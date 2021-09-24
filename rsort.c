@@ -11,13 +11,13 @@ struct list_item {
 };
 
 
-#define MODULO 16
+#define MODULO 16l
 void rsort(void *list, size_t item_size, long getInt(void *thing), int n) {
 	char *l=list;
 	typedef struct list_item item; //prevents the namespace from getting weird.
 	item *array=malloc(n*sizeof(item)*2 + n*item_size);
 	item *sec=array+n; //secondary array.
-	char *transfers=sec+n;
+	char *transfers=(char *)(sec+n);
 	int count[MODULO]; //the count array which will be initialized to 0 each time
 	//set up initial array of items using getInt function
 	for (int i=0; i<n; i++) {
