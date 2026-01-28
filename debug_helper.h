@@ -27,6 +27,7 @@ This is for using in conjunction with ./dependency.out deppid.bin
 #ifndef _XOPEN_SOURCE
 #include <unistd.h>
 #endif
+#include <math.h>
 void signal26(int arg) {
 	; //end waiting
 }
